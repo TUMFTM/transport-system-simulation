@@ -1,6 +1,8 @@
 # Transport System Simulation
+Simulation model from the thesis "Transport System with Shared Vehicles" (2021) written by Dipl.-Ing. Manfred Klöppel at the Institute of Automotive Technology (FTM) at Technical University Munich (TUM).
 
-This is the documentation. Runs on Windows, Linux, macOS.
+This document describes the setup of a runnable simulation using IntelliJ Community Edition on Windows, Linux, and macOS.
+The model is derived from the works by [Wittmann and Jäger](https://github.com/TUMFTM/deefs/).
 ## Initial Setup
 1. IntelliJ -> File -> New -> Project from Version Control -> Insert URL "https://github.com/TUMFTM/transport-system-simulation.git" 
 2. Setup [SQLite & Spatialite](/docs/sqlite_spatialite.md)
