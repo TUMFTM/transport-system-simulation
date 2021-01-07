@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.ftm.mw.tum.de/fleetum3"
+           xmlns="http://www.ftm.mw.tum.de/fleetum3"
+           elementFormDefault="qualified">
+
+<xs:simpleType name="assignment_strategy" final="restriction" >
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="SCVA" />
+        <xs:enumeration value="PCVA" />
+        <xs:enumeration value="SSRA" />
+        <xs:enumeration value="PSRA" />
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="relocation_manager_type" final="restriction" >
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="R5" />
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="vehicle_search_mode" final="restriction" >
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="ISOCHRONE" />
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:element name="CONFIG">
+    <xs:complexType>
+        <xs:sequence>
+            <!--  Simulation Input Files  -->
+            <xs:element type="xs:string" name="requests_input_file"/>
+            <xs:element type="xs:string" name="fleet_input_file"/>
+            <xs:element type="xs:boolean" name="force_update_request_input_data"/>
+            <xs:element type="xs:boolean" name="store_route_WKT_in_input_data"/>
+
+            <!--  DB Output Config  -->
+            <xs:element type="xs:string" name="spatialite_path"/>
+            <xs:element type="xs:string" name="output_folder"/>
+            <xs:element type="xs:string" name="db_name"/>
+            <xs:element type="xs:boolean" name="db_name_append_datetime"/>
+            <xs:element type="xs:int" name="db_batch_size"/>
+            <xs:element type="xs:int" name="simobject_map_update_frequency_seconds"/>
+            <xs:element type="xs:boolean" name="enable_log_routehistory"/>
+            <xs:element type="xs:int" name="simobject_routehistory_log_frequency_seconds"/>
+            <xs:element type="xs:boolean" name="enable_postprocessing"/>
+
+            <!--  Assignment-Strategy Config  -->
+            <xs:element type="assignment_strategy" name="assignment_strategy"/>
+            <xs:element type="xs:int" name="jsprit_max_iterations"/>
+            <xs:element type="xs:int" name="vehicle_filter_list_size"/>
+            <xs:element type="xs:int" name="request_buffer_seconds"/>
+            <xs:element type="xs:int" name="max_position_age_seconds"/>
+            <xs:element type="xs:boolean" name="repeated_assignment"/>
+            <xs:element type="xs:boolean" name="print_jsprit_solution_info"/>
+            <xs:element type="xs:int" name="vehicle_pickup_dropoff_delay_seconds"/>
+            <xs:element type="xs:int" name="pickup_dropoff_duration_per_person_seconds"/>
+            <xs:element type="xs:int" name="user_max_waiting_time_seconds"/>
+            <xs:element type="xs:double" name="user_max_in_veh_time_elongation_factor"/>
+            <xs:element type="xs:int" name="user_acceptable_time_in_veh_seconds"/>
+            <xs:element type="xs:boolean" name="enable_alonso-mora_travel_delay_mode"/>
+            <xs:element type="xs:int" name="user_alonso-mora_max_delay_seconds"/>
+            <xs:element type="vehicle_search_mode" name="vehicle_search_mode"/>
+
+            <!--  Rebalancing Config  -->
+            <xs:element type="xs:boolean" name="enable_rebalancing"/>
+            <xs:element type="relocation_manager_type" name="rebalancing_manager_type"/>
+            <xs:element type="xs:string" name="rebalancing_map_path"/>
+            <xs:element type="xs:boolean" name="log_rebalancing"/>
+            <xs:element type="xs:string" name="rebalancing_log_path"/>
+
+            <!--  General Grid Config  -->
+            <xs:element type="xs:double" name="grid_top_left_lon"/>
+            <xs:element type="xs:double" name="grid_top_left_lat"/>
+            <xs:element type="xs:int" name="grid_min_width_km"/>
+            <xs:element type="xs:int" name="grid_min_height_km"/>
+            <xs:element type="xs:boolean" name="use_grid_validity_area"/>
+            <xs:element type="xs:string" name="grid_validity_area_WKT"/>
+
+            <!--  Routing Grid Config  -->
+            <xs:element type="xs:boolean" name="use_duration_grid"/>
+            <xs:element type="xs:string" name="duration_grid_path"/>
+            <xs:element type="xs:int" name="duration_grid_cell_length"/>
+            <xs:element type="xs:boolean" name="write_duration_grid_to_csv"/>
+            <xs:element type="xs:boolean" name="enable_gridrouter_warnings"/>
+
+            <!--  Graphhopper Config  -->
+            <xs:element type="xs:boolean" name="enable_turn_restrictions_and_heading"/>
+            <xs:element type="xs:string" name="graphhopper_folder_graph"/>
+            <xs:element type="xs:string" name="graphhopper_ch_folder_graph"/>
+            <xs:element type="xs:string" name="graphhopper_osm_file"/>
+
+            <!--  General Routing Config  -->
+            <xs:element type="xs:double" name="travel_time_factor_car"/>
+            <xs:element type="xs:double" name="travel_time_factor_foot"/>
+
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+</xs:schema>

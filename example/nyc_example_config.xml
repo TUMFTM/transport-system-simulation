@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG xmlns="http://www.ftm.mw.tum.de/fleetum3"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+        xs:schemaLocation="http://www.ftm.mw.tum.de/fleetum3 ../../../config.xsd">
+
+    <!--  Simulation Input Files  -->
+    <requests_input_file>example/requests_nyc_2013-05-08_1000-1030.sqlite</requests_input_file>
+    <fleet_input_file>example/fleet_NYC_3000_4.csv</fleet_input_file>
+    <force_update_request_input_data>false</force_update_request_input_data>
+    <store_route_WKT_in_input_data>false</store_route_WKT_in_input_data>
+
+    <!--  DB Output Config  -->
+    <spatialite_path>/Users/manfredkloeppel/Projekte/IntelliJ/transport-system-simulation/mod_spatialite.dylib</spatialite_path> <!--macOS/Linux: specify full path to mod_spatialite.dylib/mod_spatialite.so || Windows: just put "mod_spatialite" (without "")-->
+    <output_folder>example/output/</output_folder>
+    <db_name>nyc_example</db_name>
+    <db_name_append_datetime>true</db_name_append_datetime>
+    <db_batch_size>10000</db_batch_size>
+    <simobject_map_update_frequency_seconds>300</simobject_map_update_frequency_seconds>
+    <enable_log_routehistory>false</enable_log_routehistory>
+    <simobject_routehistory_log_frequency_seconds>1800</simobject_routehistory_log_frequency_seconds>
+    <enable_postprocessing>false</enable_postprocessing>
+
+    <!--  Assignment-Strategy Config  -->
+    <assignment_strategy>PSRA</assignment_strategy>  <!-- S/P + CVA, RVA, OPA -->
+    <jsprit_max_iterations>16</jsprit_max_iterations>
+    <vehicle_filter_list_size>50</vehicle_filter_list_size>
+    <request_buffer_seconds>45</request_buffer_seconds>
+    <max_position_age_seconds>10</max_position_age_seconds>
+    <repeated_assignment>true</repeated_assignment>
+    <print_jsprit_solution_info>false</print_jsprit_solution_info>
+    <vehicle_pickup_dropoff_delay_seconds>0</vehicle_pickup_dropoff_delay_seconds>
+    <pickup_dropoff_duration_per_person_seconds>0</pickup_dropoff_duration_per_person_seconds>
+    <user_max_waiting_time_seconds>300</user_max_waiting_time_seconds>
+    <user_max_in_veh_time_elongation_factor>100</user_max_in_veh_time_elongation_factor>
+    <user_acceptable_time_in_veh_seconds>900</user_acceptable_time_in_veh_seconds>
+    <enable_alonso-mora_travel_delay_mode>true</enable_alonso-mora_travel_delay_mode>
+    <user_alonso-mora_max_delay_seconds>600</user_alonso-mora_max_delay_seconds>
+    <vehicle_search_mode>ISOCHRONE</vehicle_search_mode>
+
+    <!--  Relocation Config  -->
+    <enable_rebalancing>true</enable_rebalancing>
+    <rebalancing_manager_type>R5</rebalancing_manager_type>
+    <rebalancing_map_path>example/nyc_relocation_2013-05-08_15.json</rebalancing_map_path>
+    <log_rebalancing>false</log_rebalancing>
+    <rebalancing_log_path>example/reloc_log</rebalancing_log_path>
+
+    <!--  General Grid Config  -->
+    <grid_top_left_lon>-74.03</grid_top_left_lon>
+    <grid_top_left_lat>40.885</grid_top_left_lat>
+    <grid_min_width_km>12</grid_min_width_km>
+    <grid_min_height_km>21</grid_min_height_km>
+    <use_grid_validity_area>true</use_grid_validity_area>
+    <grid_validity_area_WKT>POLYGON((-74.036358 40.763554, -74.03183 40.769694, -74.027141 40.776217, -74.013516 40.769966, -74.004862 40.763295, -73.97939 40.797028, -73.94841 40.84453, -73.970074 40.849303, -73.980737 40.855567, -73.984367 40.858398, -73.980056 40.86183, -73.972456 40.863889, -73.966103 40.863546, -73.95941 40.863975, -73.945779 40.85266, -73.93222 40.876621, -73.928791 40.878847, -73.911894 40.891585, -73.906901 40.904148, -73.894983 40.906241, -73.883226 40.909946, -73.882582 40.901732, -73.884837 40.889653, -73.881455 40.877412, -73.898849 40.854865, -73.90819 40.843269, -73.915437 40.8328, -73.919947 40.827324, -73.92494 40.818466, -73.928782 40.812224, -73.922543 40.808016, -73.91188 40.803294, -73.917778 40.795565, -73.926173 40.785001, -73.903399 40.771916, -73.890703 40.745128, -73.898979 40.734282, -73.916639 40.73302, -73.925698 40.725566, -73.939803 40.7188, -73.953512 40.710233, -73.955672 40.70592, -73.960484 40.693704, -73.957078 40.678314, -73.979247 40.680948, -73.987829 40.668783, -73.998454 40.674285, -74.007717 40.673475, -74.012998 40.687302, -74.017967 40.700383, -74.021974 40.702021, -74.017491 40.725186, -74.032847 40.726816, -74.033371 40.725384, -74.052387 40.728609, -74.056395 40.733899, -74.036358 40.763554), (-74.031206 40.731305, -74.017151 40.728367, -74.009165 40.757271, -74.016565 40.762606, -74.021659 40.757425, -74.031206 40.731305), (-74.01244 40.699376, -74.011025 40.694072, -74.00796 40.688885, -74.003834 40.683816, -74.000534 40.689238, -74.000887 40.693836, -73.998412 40.699023, -73.995818 40.702206, -73.999944 40.705506, -74.01244 40.699376), (-73.986388 40.707864, -73.981437 40.704681, -73.977429 40.700437, -73.965876 40.698669, -73.963872 40.700319, -73.969295 40.705035, -73.969766 40.710929, -73.974717 40.712579, -73.978489 40.70975, -73.986388 40.707864), (-73.973774 40.715762, -73.968823 40.713876, -73.965287 40.721185, -73.962222 40.724957, -73.96175 40.729672, -73.962811 40.734388, -73.959628 40.737688, -73.955031 40.739692, -73.960689 40.741461, -73.967762 40.746176, -73.970356 40.742404, -73.972713 40.734623, -73.970002 40.73038, -73.971652 40.723071, -73.973774 40.715762), (-73.965404 40.748533, -73.960336 40.744643, -73.952319 40.754546, -73.958096 40.757493, -73.965404 40.748533), (-73.95621 40.759379, -73.950551 40.75655, -73.944186 40.761265, -73.941356 40.766216, -73.937702 40.769045, -73.935698 40.771756, -73.932869 40.77435, -73.925442 40.774939, -73.930983 40.781541, -73.931572 40.786728, -73.926503 40.792032, -73.923085 40.796748, -73.9278 40.799105, -73.927682 40.796983, -73.931454 40.792386, -73.934283 40.790736, -73.938645 40.784841, -73.942064 40.782602, -73.940649 40.779065, -73.941238 40.77435, -73.95621 40.759379))</grid_validity_area_WKT>
+
+    <!--  Routing Grid Config  -->
+    <use_duration_grid>true</use_duration_grid>
+    <duration_grid_path>example/nyc_500_routing.grid</duration_grid_path>
+    <duration_grid_cell_length>500</duration_grid_cell_length>  <!-- meters -->
+    <write_duration_grid_to_csv>false</write_duration_grid_to_csv>
+    <enable_gridrouter_warnings>false</enable_gridrouter_warnings>
+
+    <!--  Graphhopper Config  -->
+    <enable_turn_restrictions_and_heading>true</enable_turn_restrictions_and_heading>
+    <graphhopper_folder_graph>example/osm/graph/</graphhopper_folder_graph>
+    <graphhopper_ch_folder_graph>example/osm/graph_ch/</graphhopper_ch_folder_graph>
+    <graphhopper_osm_file>example/osm/nyc.osm.pbf</graphhopper_osm_file>
+
+    <!--  General Routing Config  -->
+    <travel_time_factor_car>2.1</travel_time_factor_car>
+    <travel_time_factor_foot>1.0</travel_time_factor_foot>
+
+</CONFIG>
