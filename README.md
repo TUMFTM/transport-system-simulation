@@ -1,5 +1,5 @@
 # Transport System Simulation
-Simulation model from the thesis "Transport System with Shared Vehicles" (2021) written by Dipl.-Ing. Manfred Klöppel at the Institute of Automotive Technology (FTM) at Technical University Munich (TUM).
+Simulation model from the thesis "Transport System with Shared Vehicles" (2021) developed by Dipl.-Ing. Manfred Klöppel at the Institute of Automotive Technology (FTM) at Technical University Munich (TUM).
 
 This document describes the setup of a runnable simulation using IntelliJ Community Edition on Windows, Linux, and macOS.
 The model is derived from the works by [Wittmann and Jäger](https://github.com/TUMFTM/deefs/).
@@ -19,7 +19,7 @@ Before running a simulation, the configuration-file needs to be configured. Foll
 - Rebalancing data (*.json)
 - OSM map data (*.osm.pbf, e.g. from geofabrik.org)
 
-Exemplary input data is provided in [examples](/examples). Adjust the paths to the files accordingly to your system. Example scenario takes approx. 5-10 minutes to execute (tested on 3 GHz 6-Core Intel Core i5).
+Exemplary input data is provided in [examples](../../examples). Adjust the paths to the files accordingly to your system. Example scenario takes approx. 5-10 minutes to execute (tested on 3 GHz 6-Core Intel Core i5).
 
 ## Run Simulation
 ### Parameters
