@@ -19,7 +19,7 @@ Before running a simulation, the configuration-file needs to be configured. Foll
 - Rebalancing data (*.json)
 - OSM map data (*.osm.pbf, e.g. from geofabrik.org)
 
-Exemplary input data is provided in [examples](../../examples). Adjust the paths to the files accordingly to your system. Example scenario takes approx. 5-10 minutes to execute (tested on 3 GHz 6-Core Intel Core i5).
+Exemplary input data is provided in [examples](https://github.com/TUMFTM/transport-system-simulation/tree/main/example). Adjust the paths to the files accordingly to your system. Example scenario takes approx. 5-10 minutes to execute (tested on 3 GHz 6-Core Intel Core i5).
 
 ## Run Simulation
 ### Parameters
